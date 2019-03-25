@@ -12,7 +12,7 @@ function renderApp() {
         <Application />
       </BrowserRouter>
     </Provider>,
-    document.querySelector('#Application')
+    document.querySelector('#root')
   );
 }
 

@@ -3,7 +3,8 @@ import {
   applyMiddleware,
   compose
 } from 'redux';
-
+import appReducer from './application/combine-reducrs';
+import rootSagas from './sagas'
 import createSagaMiddleware from 'redux-saga';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -36,8 +37,8 @@ const finalCreateStore = compose(
     applyMiddleware(...middlewares)
 )(createStore);
 
-const configuredStore = finalCreateStore();
+const configuredStore = finalCreateStore(appReducer);
 
-configuredStore.runSaga = sagaMiddleware.run;
+sagaMiddleware.run(rootSagas);
 
 export default configuredStore;
