@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import Application from './application'
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import store from './store';
+import initzializedStore from './store';
 
 function renderApp() {
   ReactDOM.render(
-    <Provider store={store}>
+    <Provider store={initzializedStore}>
       <BrowserRouter>
         <Application />
       </BrowserRouter>

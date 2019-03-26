@@ -3,16 +3,19 @@ import {
   applyMiddleware,
   compose
 } from 'redux';
-import appReducer from './application/combine-reducrs';
-import rootSagas from './sagas'
-import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
+import createReducer from './application/combine-reducers';
+import rootSagas from './application/sagas'
 
+// подключение саги к сторе а точнее создание мидделвары
+import createSagaMiddleware from 'redux-saga';
 const sagaMiddleware = createSagaMiddleware();
 
 const middlewares = [
   sagaMiddleware
 ];
 
+// конфигурация логера
 const createLogger = require('redux-logger').createLogger; // eslint-disable-line global-require
 const logger = createLogger({
   level: 'log',
@@ -34,11 +37,12 @@ const logger = createLogger({
 middlewares.push(logger);
 
 const finalCreateStore = compose(
+  composeWithDevTools(
     applyMiddleware(...middlewares)
+  )
 )(createStore);
 
-const configuredStore = finalCreateStore(appReducer);
-
+const configuredStore = finalCreateStore(createReducer({}));
 sagaMiddleware.run(rootSagas);
 
 export default configuredStore;
