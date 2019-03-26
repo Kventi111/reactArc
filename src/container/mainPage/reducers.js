@@ -9,7 +9,11 @@ const initialCarState = {
 }
 
 const initialState = fromJS({
+<<<<<<< HEAD
   cars : initialCarState
+=======
+  car : initialCarState
+>>>>>>> 3bd45f53d6077a5b9bb4a2ee5110bb61d5a86c5c
 })
 
 
