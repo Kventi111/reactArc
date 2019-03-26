@@ -1,26 +1,19 @@
 import { fromJS } from 'immutable';
 
-const initialUserState = {
-  age : "",
-  firsName : "",
-  lastName : "",
-  phone : "",
-  email : "",
-  gender : "",
+const initialCarState = {
+  color : "",
+  mark : "",
   type : "",
-  role : ""
+  speed : "", 
+  weight : ""
 }
 
 const initialState = fromJS({
-  user : initialUserState
+  cars : initialCarState
 })
 
-const changeUserName = (state,payload) => state.setIn(
-  ['user','firstName'],
-  payload
-)
 
-function secondContainerReducer(state = initialState,action) {
+function carContainerReducer(state = initialState,action) {
   switch(action) {
     case 'RUN_CONTAINER':
       return changeUserName
@@ -29,4 +22,4 @@ function secondContainerReducer(state = initialState,action) {
   }
 }
 
-export default secondContainerReducer;
+export default carContainerReducer;

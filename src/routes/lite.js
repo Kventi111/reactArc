@@ -1,5 +1,6 @@
 import MainPage from '../container/mainPage/container'
 import SecondPage from '../container/secondPage'
+import NotFound from '../components/global/notFound'
 
 export const appRoute = [
   {
@@ -18,7 +19,7 @@ export const appRoute = [
   },
   {
     path: '*',
-    component: ''
+    component: NotFound
   }
 ];
 
