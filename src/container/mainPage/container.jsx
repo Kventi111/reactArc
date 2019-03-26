@@ -4,7 +4,7 @@ export default class MainPage extends Component {
   render() {
     return (
       <div>
-        hello from mainPage container
+        hello from mahhhhhinPage container
       </div>
     )
   }

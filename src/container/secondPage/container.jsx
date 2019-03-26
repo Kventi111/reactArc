@@ -4,7 +4,7 @@ export default class SecondPage extends Component {
   render() {
     return (
       <div>
-        secondPage
+        secondPagedddd
       </div>
     )
   }
